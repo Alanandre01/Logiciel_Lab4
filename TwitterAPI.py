@@ -54,6 +54,8 @@ class TwitterAPI:
             return "Error: 'url' is not a string type"
         if len(url) == 0:
             return "Error: 'url' is empty"
+        if params['max_results'] == None:
+            return "Error: 'max_results' is empty"
          
         
 
