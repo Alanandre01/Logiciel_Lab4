@@ -45,6 +45,8 @@ class TwitterAPI:
             return "Error: 'BEARER_TOKEN' is not a string type" 
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"
+        if len(url) == 0:
+            return "Error: 'url' is empty" 
         
 
         response = requests.request('GET', url, headers=headers, params=params)
