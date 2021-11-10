@@ -56,6 +56,8 @@ class TwitterAPI:
             return "Error: 'url' is empty"
         if params['max_results'] == None:
             return "Error: 'max_results' is empty"
+        if not isinstance(params['max_results'],int):
+            return "Error: 'max_results' must be an int type"
          
         
 
