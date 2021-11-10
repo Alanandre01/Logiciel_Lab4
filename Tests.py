@@ -49,6 +49,13 @@ class TestTwitterAPI(unittest.TestCase):
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'headers' is not a dict type")
 
+    def test_params_not_dict_type(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url('data')
+        params = int(1234)
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)       
+        self.assertEqual(json_response, "Error: 'params' is not a dict type")
+
 
 
 if __name__ == '__main__':
