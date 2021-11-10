@@ -41,7 +41,13 @@ class TestTwitterAPI(unittest.TestCase):
         headers = None
         url, params = TwitterAPI.create_twitter_url('data')
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
-        self.assertEqual(json_response, "Error: 'header' is empty")
+        self.assertEqual(json_response, "Error: 'headers' is empty")
+
+    def test_header_not_dict_type(self):
+        headers = int(1234)
+        url, params = TwitterAPI.create_twitter_url('data')
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: 'headers' is not a dict type")
 
 
 

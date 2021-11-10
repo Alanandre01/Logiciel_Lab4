@@ -30,7 +30,7 @@ class TwitterAPI:
         
         
         if headers == None:
-            return "Error: 'header' is empty"       
+            return "Error: 'headers' is empty"       
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"      
         if params[0] == None:
