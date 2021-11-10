@@ -49,6 +49,7 @@ class Lab4HTTPRequestHandler(SimpleHTTPRequestHandler):
             headers = TwitterAPI.create_twitter_headers()
             url, params = TwitterAPI.create_twitter_url(data,10)
             json_response = TwitterAPI.query_twitter_api(url, headers, params)
+            print (json_response)
             tweets = json_response['data']
 
             # Assume that right here, we save the tweets into a SQL databases
