@@ -26,7 +26,7 @@ class TestTwitterAPI(unittest.TestCase):
     def test_keyword_is_none(self):
         headers = TwitterAPI.create_twitter_headers()
         url, params = TwitterAPI.create_twitter_url("data")
-        params[0] = None
+        params = None
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'params' is empty")
     
@@ -55,6 +55,12 @@ class TestTwitterAPI(unittest.TestCase):
         params = int(1234)
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
         self.assertEqual(json_response, "Error: 'params' is not a dict type")
+    
+    def test_data_is_none(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url(None)
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: 'data' is empty")
 
 
 
