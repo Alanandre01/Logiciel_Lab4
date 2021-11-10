@@ -10,7 +10,8 @@ class TestDatabase(unittest.TestCase):
         self.db = None
 
     def test_can_load_tweets(self):
-        self.assertFalse()
+        all_tweets = self.db.load_tweets()
+        self.assertEqual(all_tweets, None)
 
 
 class TestServer(unittest.TestCase):
@@ -26,7 +27,7 @@ class TestTwitterAPI(unittest.TestCase):
         self.assertEqual(json_response, "Error: 'params' is empty")
     
     def test_bearer_token_not_exist(self):
-        BEARER_TOKEN = ''
+        BEARER_TOKEN = ""
         headers = {'Authorization': f'Bearer {BEARER_TOKEN}'}
         url, params = TwitterAPI.create_twitter_url("data")
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
