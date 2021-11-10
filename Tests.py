@@ -16,6 +16,10 @@ class TestDatabase(unittest.TestCase):
     def test_can_save_tweets(self):
         self.db.save_tweets(["tweet"])
         self.assertEqual(len(self.db.tweets), 0)
+    
+    def test_save_tweets_is_empty(self):
+        self.db.save_tweets([])
+        self.assertEqual(len(self.db.tweets), 1)
 
 
 class TestServer(unittest.TestCase):
