@@ -12,7 +12,7 @@ class Database:
         self.tweets = []
 
     def save_tweets(self, new_tweets):
-        save_tweets_succes = False
+        save_tweets_succes = True
 
         if save_tweets_succes == False:
             print("Error database : cannot save tweets")

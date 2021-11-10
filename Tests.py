@@ -21,7 +21,10 @@ class TestDatabase(unittest.TestCase):
         self.db.save_tweets(["tweet"])
         all_tweets = self.db.load_tweets()
         self.assertEqual(all_tweets, "Error: no tweet is loaded")
-
+        
+    def test_save_not_a_tweet(self):
+        self.db.save_tweets(1234)
+        self.assertEqual(len(self.db.tweets), 0)
 
 class TestServer(unittest.TestCase):
     pass
