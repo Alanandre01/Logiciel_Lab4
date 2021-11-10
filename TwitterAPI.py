@@ -27,6 +27,9 @@ class TwitterAPI:
 
     @staticmethod
     def query_twitter_api(url, headers, params):
+        if params[0] == None:
+            return "Error: 'params' is empty"
+        
         response = requests.request('GET', url, headers=headers, params=params)
         return response.json()
 
