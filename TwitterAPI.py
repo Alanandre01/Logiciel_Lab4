@@ -27,11 +27,14 @@ class TwitterAPI:
 
     @staticmethod
     def query_twitter_api(url, headers, params):
+        
+        
+        # if headers == None:
+        #     return "Error: 'header' is empty"       
+        if len(headers['Authorization']) <= 20:
+            return "Error: bearer token does not exist"      
         if params[0] == None:
             return "Error: 'params' is empty"
-        if len(headers['Authorization']) <= 20:
-            return "Error: bearer token does not exist"
-        
 
 
         response = requests.request('GET', url, headers=headers, params=params)
