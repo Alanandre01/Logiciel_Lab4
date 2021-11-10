@@ -12,13 +12,20 @@ class Database:
         self.tweets = []
 
     def save_tweets(self, new_tweets):
+        save_tweets_succes = False
+
+        if save_tweets_succes == False:
+               print("error database : cannot save tweets")
+               return
+
         self.tweets.extend(new_tweets)
 
     def load_tweets(self):
         load_tweets_succes = False
 
         if load_tweets_succes == False:
-               return None
+                print("error database : cannot load tweets")
+                return None
 
         return self.tweets
 
