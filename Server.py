@@ -24,8 +24,11 @@ class Database:
         load_tweets_succes = False
 
         if load_tweets_succes == False:
-                print("Error database : cannot load tweets")
-                return None
+            print("Error database : cannot load tweets")
+            return "Error: no tweet is loaded"
+
+        if self.tweets == []:
+            return "Error: no tweet is loaded"
 
         return self.tweets
 

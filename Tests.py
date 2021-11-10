@@ -11,15 +11,16 @@ class TestDatabase(unittest.TestCase):
 
     def test_can_load_tweets(self):
         all_tweets = self.db.load_tweets()
-        self.assertEqual(all_tweets, None)
+        self.assertEqual(all_tweets, "Error: no tweet is loaded")
     
     def test_can_save_tweets(self):
         self.db.save_tweets(["tweet"])
         self.assertEqual(len(self.db.tweets), 0)
     
     def test_load_tweets_is_empty(self):
+        self.db.save_tweets(["tweet"])
         all_tweets = self.db.load_tweets()
-        self.assertEqual(all_tweets, "Error: any tweet in database")
+        self.assertEqual(all_tweets, "Error: no tweet is loaded")
 
 
 class TestServer(unittest.TestCase):
