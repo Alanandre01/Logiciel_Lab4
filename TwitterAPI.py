@@ -26,16 +26,16 @@ class TwitterAPI:
         return search_url, query_params
 
     @staticmethod
-    def query_twitter_api(url, headers, params):
-        
+    def query_twitter_api(url, headers, params):       
         
         if headers == None:
-            return "Error: 'headers' is empty"       
+            return "Error: 'headers' is empty"  
+        if not isinstance(headers,dict):
+            return "Error: 'headers' is not a dict type"     
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"      
         if params[0] == None:
             return "Error: 'params' is empty"
-
 
         response = requests.request('GET', url, headers=headers, params=params)
         return response.json()
