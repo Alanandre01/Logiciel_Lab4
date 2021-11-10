@@ -88,5 +88,12 @@ class TestTwitterAPI(unittest.TestCase):
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
         self.assertEqual(json_response, "Error: 'url' is not a string type")
 
+    def test_data_is_empty(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url('')
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: 'data' is empty")
+
+
 if __name__ == '__main__':
     unittest.main()

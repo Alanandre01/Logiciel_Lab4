@@ -10,9 +10,12 @@ class TwitterAPI:
         return headers
 
     @staticmethod
-    def create_twitter_url(keyword, max_results=10):
+    def create_twitter_url(keyword, max_results=5):
         search_url = 'https://api.twitter.com/2/tweets/search/recent'
 
+        if keyword == '':
+            print("Error: 'data' is empty")  
+        
         query_params = {
             'query': keyword,
             'max_results': max_results,
