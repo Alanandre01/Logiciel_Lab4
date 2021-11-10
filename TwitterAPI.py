@@ -51,7 +51,9 @@ class TwitterAPI:
         if not isinstance(url,str):
             return "Error: 'url' is not a string type"
         if len(url) == 0:
-            return "Error: 'url' is empty" 
+            return "Error: 'url' is empty"
+        if params['query'] == '':
+            return "Error: 'data' is empty"  
         
 
         response = requests.request('GET', url, headers=headers, params=params)
