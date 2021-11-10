@@ -69,8 +69,7 @@ class TestTwitterAPI(unittest.TestCase):
         self.assertEqual(json_response, "Error: 'data' is not a string type")
 
     def test_bearer_token_not_string_type(self):
-        BEARER_TOKEN = int(1234)
-        headers = {'Authorization': f'Bearer {BEARER_TOKEN}'}
+        headers = {'Authorization': int(1234)}
         url, params = TwitterAPI.create_twitter_url("data")
         json_response = TwitterAPI.query_twitter_api(url, headers, params)    
         self.assertEqual(json_response, "Error: 'BEARER_TOKEN' is not a string type")

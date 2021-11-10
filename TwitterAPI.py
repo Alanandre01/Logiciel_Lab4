@@ -32,9 +32,7 @@ class TwitterAPI:
         if headers == None:
             return "Error: 'headers' is empty"  
         if not isinstance(headers,dict):
-            return "Error: 'headers' is not a dict type"     
-        if len(headers['Authorization']) <= 20:
-            return "Error: bearer token does not exist"                  
+            return "Error: 'headers' is not a dict type"                              
         if params == None:
             return "Error: 'params' is empty"
         if not isinstance(params,dict):
@@ -43,6 +41,10 @@ class TwitterAPI:
             return "Error: 'data' is empty" 
         if not isinstance(params['query'],str):
             return "Error: 'data' is not a string type" 
+        if not isinstance(headers['Authorization'],str):
+            return "Error: 'BEARER_TOKEN' is not a string type" 
+        if len(headers['Authorization']) <= 20:
+            return "Error: bearer token does not exist"
         
 
         response = requests.request('GET', url, headers=headers, params=params)
