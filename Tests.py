@@ -47,14 +47,14 @@ class TestTwitterAPI(unittest.TestCase):
         headers = int(1234)
         url, params = TwitterAPI.create_twitter_url('data')
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
-        self.assertEqual(json_response, "Error: 'headers' is not a dict type")
+        self.assertEqual(json_response, "Error: 'headers' must be a dict type")
 
     def test_params_not_dict_type(self):
         headers = TwitterAPI.create_twitter_headers()
         url, params = TwitterAPI.create_twitter_url('data')
         params = int(1234)
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
-        self.assertEqual(json_response, "Error: 'params' is not a dict type")
+        self.assertEqual(json_response, "Error: 'params' must be a dict type")
     
     def test_data_is_none(self):
         headers = TwitterAPI.create_twitter_headers()
@@ -66,13 +66,13 @@ class TestTwitterAPI(unittest.TestCase):
         headers = TwitterAPI.create_twitter_headers()
         url, params = TwitterAPI.create_twitter_url(int(1234))
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
-        self.assertEqual(json_response, "Error: 'data' is not a string type")
+        self.assertEqual(json_response, "Error: 'data' must be a string type")
 
     def test_bearer_token_not_string_type(self):
         headers = {'Authorization': int(1234)}
         url, params = TwitterAPI.create_twitter_url('data')
         json_response = TwitterAPI.query_twitter_api(url, headers, params)    
-        self.assertEqual(json_response, "Error: 'BEARER_TOKEN' is not a string type")
+        self.assertEqual(json_response, "Error: 'BEARER_TOKEN' must be a string type")
 
     def test_url_is_none(self):
         headers = TwitterAPI.create_twitter_headers()
@@ -86,7 +86,7 @@ class TestTwitterAPI(unittest.TestCase):
         url, params = TwitterAPI.create_twitter_url('data')
         url = int(1234)
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
-        self.assertEqual(json_response, "Error: 'url' is not a string type")
+        self.assertEqual(json_response, "Error: 'url' must be a string type")
 
     def test_data_is_empty(self):
         headers = TwitterAPI.create_twitter_headers()
@@ -99,6 +99,13 @@ class TestTwitterAPI(unittest.TestCase):
         url, params = TwitterAPI.create_twitter_url('data', None)
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'max_results' is empty")
+
+    def test_max_results_not_int_type(self):
+        headers = TwitterAPI.create_twitter_headers()
+        max_results = str("abcd")
+        url, params = TwitterAPI.create_twitter_url('data',max_results)
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)       
+        self.assertEqual(json_response, "Error: 'max_results' must be an int type")
 
 
 if __name__ == '__main__':

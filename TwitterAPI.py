@@ -35,23 +35,23 @@ class TwitterAPI:
         if headers == None:
             return "Error: 'headers' is empty"  
         if not isinstance(headers,dict):
-            return "Error: 'headers' is not a dict type"                              
+            return "Error: 'headers' must be a dict type"                              
         if params == None:
             return "Error: 'params' is empty"
         if not isinstance(params,dict):
-            return "Error: 'params' is not a dict type"
+            return "Error: 'params' must be a dict type"
         if params['query'] == None:
             return "Error: 'data' is empty"
         if params['query'] == '':
             return "Error: 'data' is empty"  
         if not isinstance(params['query'],str):
-            return "Error: 'data' is not a string type" 
+            return "Error: 'data' must be a string type" 
         if not isinstance(headers['Authorization'],str):
-            return "Error: 'BEARER_TOKEN' is not a string type" 
+            return "Error: 'BEARER_TOKEN' must be a string type" 
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"       
         if not isinstance(url,str):
-            return "Error: 'url' is not a string type"
+            return "Error: 'url' must be a string type"
         if len(url) == 0:
             return "Error: 'url' is empty"
         if params['max_results'] == None:
