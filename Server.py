@@ -20,6 +20,7 @@ class Database:
 
 class Lab4HTTPRequestHandler(SimpleHTTPRequestHandler):
     db = Database()
+    load_tweets = True
 
     def do_GET(self):
         if self.path == '/':
@@ -44,7 +45,7 @@ class Lab4HTTPRequestHandler(SimpleHTTPRequestHandler):
 
             # Assume that right here, we load the tweets from a SQL database
             all_tweets = self.db.load_tweets()
-
+            
             tweets_to_display = ''
             for tweet in all_tweets:
                 tweets_to_display += '<div> <li>' + tweet['text'] + '</li> </div>'
