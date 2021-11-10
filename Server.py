@@ -12,7 +12,7 @@ class Database:
         self.tweets = []
 
     def save_tweets(self, new_tweets):
-        save_tweets_succes = False
+        save_tweets_succes = True
 
         if save_tweets_succes == False:
                print("Error database : cannot save tweets")
@@ -21,7 +21,7 @@ class Database:
         self.tweets.extend(new_tweets)
 
     def load_tweets(self):
-        load_tweets_succes = False
+        load_tweets_succes = True
 
         if load_tweets_succes == False:
                 print("Error database : cannot load tweets")
@@ -47,7 +47,7 @@ class Lab4HTTPRequestHandler(SimpleHTTPRequestHandler):
                 data = query_components['query'][0]
 
             headers = TwitterAPI.create_twitter_headers()
-            url, params = TwitterAPI.create_twitter_url(data)
+            url, params = TwitterAPI.create_twitter_url(data,10)
             json_response = TwitterAPI.query_twitter_api(url, headers, params)
             tweets = json_response['data']
 

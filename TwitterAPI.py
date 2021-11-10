@@ -10,7 +10,7 @@ class TwitterAPI:
         return headers
 
     @staticmethod
-    def create_twitter_url(keyword, max_results=5):
+    def create_twitter_url(keyword, max_results=10):
         search_url = 'https://api.twitter.com/2/tweets/search/recent'
 
         if keyword == '':
@@ -41,7 +41,9 @@ class TwitterAPI:
         if not isinstance(params,dict):
             return "Error: 'params' is not a dict type"
         if params['query'] == None:
-            return "Error: 'data' is empty" 
+            return "Error: 'data' is empty"
+        if params['query'] == '':
+            return "Error: 'data' is empty"  
         if not isinstance(params['query'],str):
             return "Error: 'data' is not a string type" 
         if not isinstance(headers['Authorization'],str):
@@ -52,8 +54,7 @@ class TwitterAPI:
             return "Error: 'url' is not a string type"
         if len(url) == 0:
             return "Error: 'url' is empty"
-        if params['query'] == '':
-            return "Error: 'data' is empty"  
+         
         
 
         response = requests.request('GET', url, headers=headers, params=params)
