@@ -113,5 +113,11 @@ class TestTwitterAPI(unittest.TestCase):
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'max_results' must be greater than 10")
 
+    def test_max_results_is_greater_than_100(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url('data', 101)
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: 'max_results' must be less than 100")
+
 if __name__ == '__main__':
     unittest.main()
