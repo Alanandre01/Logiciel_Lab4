@@ -36,7 +36,9 @@ class TwitterAPI:
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"             
         if params['query'] == None:
-            return "Error: 'data' is empty"       
+            return "Error: 'data' is empty" 
+        if not isinstance(params['query'],str):
+            return "Error: 'data' is not a string type"      
         if params == None:
             return "Error: 'params' is empty"
         if not isinstance(params,dict):
