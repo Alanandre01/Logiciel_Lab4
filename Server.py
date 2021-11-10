@@ -15,8 +15,8 @@ class Database:
         save_tweets_succes = False
 
         if save_tweets_succes == False:
-               print("Error database : cannot save tweets")
-               return
+            print("Error database : cannot save tweets")
+            return
 
         self.tweets.extend(new_tweets)
 
