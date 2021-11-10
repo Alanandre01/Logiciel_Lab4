@@ -17,6 +17,9 @@ class Database:
         if save_tweets_succes == False:
             print("Error database : cannot save tweets")
             return
+        
+        if not isinstance(new_tweets,str):
+            return
 
         self.tweets.extend(new_tweets)
 
