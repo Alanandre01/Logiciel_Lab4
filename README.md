@@ -39,13 +39,7 @@ Utilisez les autres boutons pour effectuer le contrôle de la vidéo:
 
 ## Sources 
 
-Librairie Keyboard: https://github.com/boppreh/keyboard#api
-
-https://stackoverflow.com/questions/24072790/how-to-detect-key-presses
-
-PyObject* to String: https://docs.python.org/3/c-api/unicode.html
-
-String to LPCWSTR: https://www.codegrepper.com/code-examples/cpp/c%2B%2B+convert+const+char%2A+to+LPCWSTR
+Intervalle max_results: https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/paginate
 
 ## Licence
 
