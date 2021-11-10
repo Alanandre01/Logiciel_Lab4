@@ -58,7 +58,8 @@ class TwitterAPI:
             return "Error: 'max_results' is empty"
         if not isinstance(params['max_results'],int):
             return "Error: 'max_results' must be an int type"
-         
+        if  params['max_results'] < 10:
+            return "Error: 'max_results' must be greater than 10"
         
 
         response = requests.request('GET', url, headers=headers, params=params)

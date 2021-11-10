@@ -107,6 +107,11 @@ class TestTwitterAPI(unittest.TestCase):
         json_response = TwitterAPI.query_twitter_api(url, headers, params)       
         self.assertEqual(json_response, "Error: 'max_results' must be an int type")
 
+    def test_max_results_is_less_than_10(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url('data', 9)
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: 'max_results' must be greater than 10")
 
 if __name__ == '__main__':
     unittest.main()
