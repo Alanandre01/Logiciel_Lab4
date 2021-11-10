@@ -35,10 +35,13 @@ class TwitterAPI:
             return "Error: 'headers' is not a dict type"     
         if len(headers['Authorization']) <= 20:
             return "Error: bearer token does not exist"             
+        if params['query'] == None:
+            return "Error: 'data' is empty"       
         if params == None:
             return "Error: 'params' is empty"
         if not isinstance(params,dict):
             return "Error: 'params' is not a dict type"
+        
 
         response = requests.request('GET', url, headers=headers, params=params)
         return response.json()

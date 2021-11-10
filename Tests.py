@@ -23,7 +23,7 @@ class TestServer(unittest.TestCase):
 
 
 class TestTwitterAPI(unittest.TestCase):
-    def test_keyword_is_none(self):
+    def test_params_is_none(self):
         headers = TwitterAPI.create_twitter_headers()
         url, params = TwitterAPI.create_twitter_url("data")
         params = None
@@ -61,6 +61,12 @@ class TestTwitterAPI(unittest.TestCase):
         url, params = TwitterAPI.create_twitter_url(None)
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'data' is empty")
+
+    def test_data_not_string_type(self):
+        headers = TwitterAPI.create_twitter_headers()
+        url, params = TwitterAPI.create_twitter_url(int(1234))
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)       
+        self.assertEqual(json_response, "Error: 'data' is not a string type")
 
 
 
