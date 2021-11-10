@@ -60,6 +60,8 @@ class TwitterAPI:
             return "Error: 'max_results' must be an int type"
         if  params['max_results'] < 10:
             return "Error: 'max_results' must be greater than 10"
+        if  params['max_results'] > 100:
+            return "Error: 'max_results' must be less than 100"
         
 
         response = requests.request('GET', url, headers=headers, params=params)
