@@ -24,6 +24,15 @@ class TestTwitterAPI(unittest.TestCase):
         params[0] = None
         json_response = TwitterAPI.query_twitter_api(url, headers, params)
         self.assertEqual(json_response, "Error: 'params' is empty")
+    
+    def test_bearer_token_not_exist(self):
+        BEARER_TOKEN = ''
+        headers = {'Authorization': f'Bearer {BEARER_TOKEN}'}
+        url, params = TwitterAPI.create_twitter_url("data")
+        json_response = TwitterAPI.query_twitter_api(url, headers, params)
+        self.assertEqual(json_response, "Error: bearer token does not exist")
+
+
 
 if __name__ == '__main__':
     unittest.main()
