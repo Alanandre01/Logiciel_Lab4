@@ -6,36 +6,35 @@ Laboratoire créé par Alan Brucher
 
 ## Installation
 
-Pour installer le projet, utilisez le bouton "Open with Visual Studio" situé dans "Code".
+Ouvrez le fichier sur VS Code
 
-**Verifiez que vous utilisez Python 3.10 et que vous êtes en Debug x64**
+**Verifiez que vous utilisez Python 3 et que les extensions Python sont instalées**
 
-Dans les propriétés du projet C++, remplacer VC++ Directories->Include et VC++ Directories->Directories pour avoir le bon path.
+Utiliser la commande "pip install -r requirements.txt" pour installer les librairies nécésaires
 
-Si ce n'est pas déjà fait, modifier ces propriétés
+Utiliser l'environement virtuel
 
-- General -> Target Name = Lab3_Cpp
-- General -> Configuration Type = Dynamic Library (.dll)
-- Advanced -> Target File extension = .pyd
+Modifier le BEARER_TOKEN dans le fichier TwitterAPI.py si besoin
 
-Compiler le projet.
+> :warning:	Les variables booléennes "save_tweets_succes" et "load_tweets_succes" simule le fonctionnement de la database
 
-Ouvrez "Lab3_Python.py" dans le dossier du même nom et modifier aussi le path du Debug à la ligne 7.
+> De préférence, si vous voulez utiliser normalement le code, mettez les valeurs a True pour faire fonctionner la database
 
-Lancer le projet en insérant ceci (avec le bon path) dans l'invite de commandes:
+> Si vous voulez vérifier les tests unitaires de la database, mettez les valeurs a False pour simuler un disfonctionnement
 
-```bash
-python C:\Users\...\Lab3_Python\Lab3_Python.py
-```
+## Utilisation normale
 
-Dès l'apparition de la fenêtre, appuyez sur le bouton "Select video file" et selectionnez la vidéo "Exemple.avi":
+Lancer le ficher main.py
 
-Utilisez les autres boutons pour effectuer le contrôle de la vidéo:
+Utiliser ce lien : http://localhost:8080
 
-- Play/Pause - Lancer ou mettre en pause la vidéo
-- Stop - Arrêter la vidéo
-- Back to start - Retourner au début de la vidéo
-- Quit - Fermer la fenêtre 
+Entrez un mot-clé dans la barre "Query" et appuyer sur "Send"
+
+## Utilisation tests unitaires
+
+Aller dans l'onglet "testing" à gauche
+
+Et appuyer sur le boutons "Run tests" en haut
 
 ## Sources 
 
